@@ -130,7 +130,16 @@ public:
       camera_info.header.frame_id = img_.header.frame_id;
       camera_info.width = image_width_;
       camera_info.height = image_height_;
+      boost::array<double, 9> k= {807.9784157375333,0.0,352.63629334104326,0.0,803.6160425930896,242.17747803839583,0.0,0.0,1.0};
+      camera_info.K = k;
+      /*boost::array<float,5> d_ = {-0.085458609104547146,0.4293397483556118,-0.0004304065651215647,0.005512358651711165,0.0}
+      camera_info.D = d_;*/
+      boost::array<double, 9> r = {1.0, 0.0, 0.0 , 0.0, 1.0, 0.0, 0.0, 0.0, 1.0};
+      camera_info.R = r;
+      boost::array<double, 12> p = {811.8981933593754, 0.0,353.7809418935288,0.0,0.0,807.7466430664062,242.01127376730983,0.0,0.0,0.0,1.0,0.0};
+      camera_info.P = p;
       cinfo_->setCameraInfo(camera_info);
+ROS_INFO("");
     }
 
 
